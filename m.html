@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Wrida's Project</title>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/png" href="/static/img/favicon.ico"/>
+
+	<!-- Leaflet CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"> <!-- Taille de police plus légère -->
+	<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+	<!-- Font Awesome for Icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Poppins', sans-serif; /* Changement de police pour tout le corps */
+			background-color: #f4f4f4; /* Fond plus clair pour une esthétique douce */
+			color: #333; /* Texte plus foncé pour un meilleur contraste */
+			padding: 20px;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+		}
+
+		.top-section {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 20px;
+			background-color: #1aa7a0; /* Couleur de fond pour la section supérieure */
+			border-radius: 10px; /* Coins arrondis pour une esthétique douce */
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre pour donner du relief */
+		}
+
+		.logo-title {
+			display: flex;
+			align-items: center;
+			margin-right: 20px;
+		}
+
+		.logo-title img {
+			height: 50px;
+			margin-right: 15px;
+		}
+
+		.top-section h1 {
+			font-family: 'Lobster', cursive; /* Changer la police de titre */
+			font-size: 36px; /* Taille réduite */
+			margin: 0;
+			color: #F4A300;
+		}
+
+		.navigation {
+			display: flex;
+			align-items: center;
+		}
+
+		.navigation a {
+			margin-left: 15px;
+			color: #fff; /* Texte blanc pour contraster avec le fond */
+			text-decoration: none;
+			font-size: 16px; /* Taille de police réduite */
+			font-weight: bold;
+		}
+
+		.navigation span {
+			display: inline-block;
+			width: 1px;
+			height: 20px;
+			background-color: #fff; /* Séparateur blanc */
+			margin: 0 10px;
+		}
+
+		.navigation a:hover {
+			color: #ffd700;
+		}
+
+		.map-description {
+			text-align: center;
+			font-size: 18px; /* Taille de police réduite */
+			margin: 20px 0; 
+			color: #1a1a1a; 
+			font-family: Arial, sans-serif; /* Utiliser une police standard */
+		}
+
+		#map {
+			width: 100%; /* Prend toute la largeur disponible */
+			height: 400px; /* Taille constante */
+			max-width: 600px; /* Limite à 600px */
+			border: 2px solid #1a1a1a;
+			border-radius: 8px;
+			margin: 20px auto; 
+		}
+
+		.project-info {
+			font-size: 16px; /* Taille de police pour le paragraphe */
+			margin: 20px 0; /* Marges autour du paragraphe */
+			color: #333; /* Couleur du texte */
+			text-align: justify; /* Justifie le texte */
+		}
+
+		footer {
+			margin-top: auto; /* Pousse le footer vers le bas */
+			text-align: center;
+			color: #333;
+			font-size: 14px;
+			padding: 10px 0; /* Ajoute un peu de padding */
+			background-color: #1aa7a0; /* Fond du footer */
+			border-radius: 10px; /* Coins arrondis */
+			box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Ombre pour donner du relief */
+		}
+
+		footer a {
+			color: #F4A300; /* Couleur des liens */
+			text-decoration: none; /* Pas de soulignement */
+			margin: 0 10px; /* Espacement entre les icônes */
+		}
+
+		footer a:hover {
+			text-decoration: underline; /* Souligne au survol */
+		}
+
+		footer i {
+			font-size: 24px; /* Taille des icônes */
+		}
+
+		.copyright {
+			margin-top: 10px; /* Ajoute un espacement entre les icônes et le texte de copyright */
+		}
+	</style>
+</head>
+<body>
+
+	<div class="top-section">
+		<div class="logo-title">
+			<img src="lily.jpg" alt="Flower logo">
+			<h1>Wrida's Project</h1>
+		</div>
+		<div class="navigation">
+			<a href="#about">About</a>
+			<span></span>
+			<a href="#resources">Resources</a>
+			<span></span>
+			<a href="#getinvolved">Get Involved</a>
+		</div>
+	</div>
+
+	<div class="map-description">
+		This site is dedicated to the visualization of the universities located in Madinat Al Irfane, Rabat.
+	</div>
+
+	<div id="map"></div>
+
+	<!-- Nouveau paragraphe sur le projet -->
+	<div class="project-info">
+		Dans le cadre de mon projet, j'ai créé une page web en utilisant la bibliothèque Leaflet, une librairie JavaScript permettant d'afficher des cartes. J'ai utilisé des fichiers Shapefile et je les ai convertis au format GeoJSON. Cette conversion m'a permis d'afficher facilement les données géographiques sur la carte dans mon application web. Grâce à cette approche, les utilisateurs peuvent interagir avec la carte et visualiser les informations géospatiales directement sur la page web, rendant ainsi les données plus accessibles et dynamiques.
+	</div>
+
+	<!-- Leaflet JS -->
+	<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+	<script src="wrida.geojson"></script> 
+	<script>
+		const map = L.map('map').setView([33.98159, -6.86503], 16);
+
+		const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		}).addTo(map);
+
+		L.marker([33.98159, -6.86503]).addTo(map)
+			.bindPopup("<b>Madinat Al Irfane</b><br>Universités/Madinat Al Irfane.")
+			.openPopup();
+
+		L.geoJSON(ny).addTo(map);
+
+	</script>
+
+	<footer>
+		<a href="mailto:votreemail@example.com"><i class="fas fa-envelope"></i></a>
+		<a href="https://www.facebook.com/votrepage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+		<a href="https://www.instagram.com/votreprofil" target="_blank"><i class="fab fa-instagram"></i></a>
+		<div class="copyright">© Copyright 2024 - Wrida's Project - All Rights Reserved.</div>
+	</footer>
+
+	<!-- Font Awesome JS pour les icônes -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
